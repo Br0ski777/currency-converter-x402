@@ -36,6 +36,46 @@ Do NOT use for market data or charts -- use finance_get_token_price instead. Do 
         },
         required: ["amount", "from", "to"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "number",
+              "description": "Original amount"
+            },
+            "from": {
+              "type": "string",
+              "description": "Source currency code"
+            },
+            "to": {
+              "type": "string",
+              "description": "Target currency code"
+            },
+            "convertedAmount": {
+              "type": "number",
+              "description": "Converted amount"
+            },
+            "rate": {
+              "type": "number",
+              "description": "Exchange rate used"
+            },
+            "source": {
+              "type": "string",
+              "description": "Rate source (ECB, CoinGecko, etc.)"
+            },
+            "timestamp": {
+              "type": "string",
+              "description": "ISO 8601 timestamp"
+            }
+          },
+          "required": [
+            "amount",
+            "from",
+            "to",
+            "convertedAmount",
+            "rate"
+          ]
+        },
     },
   ],
 };
